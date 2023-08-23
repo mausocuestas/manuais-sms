@@ -44,12 +44,34 @@ const config = {
           // editUrl:
           //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+
         blog: false, // desabilita o plugin do blog
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'docs-protocolos',
+        path: 'docs-protocolos',
+        routeBasePath: 'docs-protocolos',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
+      [
+        '@docusaurus/plugin-content-docs',
+        {
+          id: 'docs-legis',
+          path: 'docs-legis',
+          routeBasePath: 'docs-legis',
+          sidebarPath: require.resolve('./sidebars.js'),
+        }, 
+      ],
   ],
 
   themeConfig:
@@ -77,12 +99,21 @@ const config = {
             position: 'left',
             label: 'Manuais',
           },
+
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
+            to: '/docs-protocolos/intro',  // ./docs-system/Intro.md
             label: 'Protocolos',
+            position: 'left',
+            activeBaseRegex: `/docs-protocolos/`,
           },
+
+          {
+            to: '/docs-legis/intro',  // ./docs-system/Intro.md
+            label: 'Legislação',
+            position: 'left',
+            activeBaseRegex: `/docs-legis/`,
+          },
+          
           // { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/facebook/docusaurus',
