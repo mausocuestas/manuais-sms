@@ -52,7 +52,7 @@ const config = {
       }),
     ],
   ],
-
+  // https://stackoverflow.com/questions/60783595/is-there-a-way-to-have-two-docs-in-docusaurus-2/68162605#68162605
   plugins: [
     [
       '@docusaurus/plugin-content-docs',
