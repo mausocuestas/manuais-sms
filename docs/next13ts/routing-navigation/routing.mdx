@@ -1,0 +1,36 @@
+---
+sidebar_position: 1
+---
+
+### Resumo
+
+O novo roteador de aplicativos em Next.js usa convenção em vez de configuração para definir rotas. Ele procura arquivos especiais como `page.tsx`, `layout.tsx`, `loading.tsx`, `route.tsx`, etc.
+
+- Com o roteador App, podemos colocar nossas páginas e seus blocos de construção (por exemplo, componentes, serviços, etc). Isso nos ajuda a organizar melhor nossos projetos, pois podemos manter arquivos altamente relacionados próximos uns dos outros. Não há necessidade de despejar todos os componentes em um diretório de componentes centralizado.
+- Uma roda dinâmica é aquela que utiliza um ou mais parâmetros. Para adicionar parâmetros às nossas rotas, colocamos os nomes dos diretórios entre colchetes (por exemplo, `[id]`).
+- Em aplicações React padrão, usamos o gancho de estado para gerenciar o estado do componente. Em aplicativos renderizados por servidor, entretanto, usamos parâmetros de string de consulta para manter o estado. Isso também nos permite marcar nossas páginas em estados específicos. Por exemplo, podemos marcar uma lista de produtos filtrada e ordenada.
+- Usamos arquivos de layout (`layout.tsx`) para criar UI que é compartilhada entre múltiplas páginas. O layout raiz (`/app/layout.tsx`) define a UI comum para todas as nossas páginas. Podemos criar layouts adicionais para áreas específicas de nossa aplicação (por exemplo, /app/admin/layout.tsx).
+- Para proporcionar uma navegação tranquila entre as páginas, o componente Link busca previamente os links que estão na janela de visualização.
+- À medida que o usuário se movimenta pela aplicação, o Next.js armazena o conteúdo da página em um cache no cliente. Portanto, se eles revisitarem uma página que já existe no cache, o Next.js simplesmente a captura do cache em vez de fazer uma nova solicitação ao servidor. O cache do cliente existe na memória do navegador e dura uma sessão inteira. Ele é redefinido quando fazemos uma atualização completa.
+
+### Convenções de arquivo
+
+- page.tsx
+- layout.tsx
+- loading.tsx
+- not-found.tsx
+- erorr.tsx
+
+### Acessando parâmetros de rota e de string de consulta
+
+Accessing Route and Query String Parameters
+
+```interface Props {
+  params: { id: string },
+  searchParams: { sortOrder: string }
+  
+  }
+
+  export default function Home({ params, searchParams }: Props) {
+
+  }```
